@@ -1,4 +1,4 @@
-import { getPost } from "@/lib/post";
+import { getPost } from "@/app/post";
 
 export default async function Home({ params }) {
   const post = await getPost(params.post);

@@ -7,7 +7,11 @@ function sleep(ms) {
 }
 
 export async function getPost(name) {
-  const post = await fs.promises.readFile(`./posts/${name}.txt`, "utf-8");
+  if (name === "[post]") return;
+  const post = await fs.promises.readFile(
+    process.cwd() + `/app/entries/${name}.txt`,
+    "utf-8"
+  );
   return {
     title: name.replace("-", " "),
     content: post,
@@ -15,7 +19,7 @@ export async function getPost(name) {
 }
 
 export async function getPosts() {
-  const posts = await fs.promises.readdir("posts");
+  const posts = await fs.promises.readdir(process.cwd() + "/app/entries");
   return posts.map((post) => {
     const postWithoutExtension = post.replace(".txt", "");
     return {
@@ -36,7 +40,10 @@ export async function getPostDescription(name) {
 }
 
 export async function getAuthor() {
-  const author = await fs.promises.readFile(`./author.txt`, "utf-8");
+  const author = await fs.promises.readFile(
+    process.cwd() + `/app/author.txt`,
+    "utf-8"
+  );
 
   await sleep(10000);
 

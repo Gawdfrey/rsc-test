@@ -1,5 +1,5 @@
 "use client";
-import { createPost } from "@/lib/actions";
+import { createPost } from "@/app/actions";
 import { useFormStatus, useFormState } from "react-dom";
 import { useRef } from "react";
 

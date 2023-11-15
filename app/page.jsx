@@ -1,5 +1,5 @@
 import { CreatePost } from "@/components/CreatePost";
-import { getPosts, getPostDescription, getAuthor } from "@/lib/post";
+import { getPosts, getPostDescription, getAuthor } from "@/app/post";
 import Link from "next/link";
 import { Suspense } from "react";
 
